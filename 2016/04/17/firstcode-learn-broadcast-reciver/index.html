@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Broadcast receiver学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="行者，始于足下
+
+android中的广播类型
+标准广播(Nomal broadcasts)
+
+完全的异步，广播发出之后，所有的广播接收器会同时接受到这条广播消息
+
+执行流程图 
+
+
+
+有序广播(Ordered broadcastes)
+
+同步执行的广播，广播发出后，同一时刻只会有一个广播接收器接收到消息，只有当前的广播接收器逻辑执行完了，才会传递
+
+广播执行具有先后顺序，按照优先级的高低传递">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Broadcast receiver学习笔记">
+<meta property="og:url" content="http://yoursite.com/2016/04/17/firstcode-learn-broadcast-reciver/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="行者，始于足下
+
+android中的广播类型
+标准广播(Nomal broadcasts)
+
+完全的异步，广播发出之后，所有的广播接收器会同时接受到这条广播消息
+
+执行流程图 
+
+
+
+有序广播(Ordered broadcastes)
+
+同步执行的广播，广播发出后，同一时刻只会有一个广播接收器接收到消息，只有当前的广播接收器逻辑执行完了，才会传递
+
+广播执行具有先后顺序，按照优先级的高低传递">
+<meta property="og:image" content="http://7xslkm.com2.z0.glb.clouddn.com/lct.png">
+<meta property="og:image" content="http://7xslkm.com2.z0.glb.clouddn.com/lct2.png">
+<meta property="og:updated_time" content="2016-04-18T05:36:08.834Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Broadcast receiver学习笔记">
+<meta name="twitter:description" content="行者，始于足下
+
+android中的广播类型
+标准广播(Nomal broadcasts)
+
+完全的异步，广播发出之后，所有的广播接收器会同时接受到这条广播消息
+
+执行流程图 
+
+
+
+有序广播(Ordered broadcastes)
+
+同步执行的广播，广播发出后，同一时刻只会有一个广播接收器接收到消息，只有当前的广播接收器逻辑执行完了，才会传递
+
+广播执行具有先后顺序，按照优先级的高低传递">
+<meta name="twitter:image" content="http://7xslkm.com2.z0.glb.clouddn.com/lct.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-firstcode-learn-broadcast-reciver" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/17/firstcode-learn-broadcast-reciver/" class="article-date">
+  <time datetime="2016-04-16T16:00:00.000Z" itemprop="datePublished">2016-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Broadcast receiver学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>行者，始于足下</p>
+</blockquote>
+<h1 id="android中的广播类型"><a href="#android中的广播类型" class="headerlink" title="android中的广播类型"></a>android中的广播类型</h1><ol>
+<li><p>标准广播(Nomal broadcasts)</p>
+<ol>
+<li><p>完全的异步，广播发出之后，所有的广播接收器会同时接受到这条广播消息</p>
+</li>
+<li><p>执行流程图 <img src="http://7xslkm.com2.z0.glb.clouddn.com/lct.png" alt=""></p>
+</li>
+</ol>
+</li>
+<li><p>有序广播(Ordered broadcastes)</p>
+<ol>
+<li><p>同步执行的广播，广播发出后，同一时刻只会有一个广播接收器接收到消息，只有当前的广播接收器逻辑执行完了，才会传递</p>
+</li>
+<li><p>广播执行具有先后顺序，按照优先级的高低传递</p>
+</li>
+<li><p>执行流程图 <img src="http://7xslkm.com2.z0.glb.clouddn.com/lct2.png" alt=""></p>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="接收广播系统"><a href="#接收广播系统" class="headerlink" title="接收广播系统"></a>接收广播系统</h1><p>Android内置了很多系统级别的广播，应用程序可以通过监听这些广播来得到各种系统的信息状态</p>
+<h1 id="广播接收器-Broadcaste-receiver"><a href="#广播接收器-Broadcaste-receiver" class="headerlink" title="广播接收器(Broadcaste receiver)"></a>广播接收器(Broadcaste receiver)</h1><p>要接受到发送的广播，就需要用到广播接收器，广播接收器可用于对我们所感兴趣的广播进行注册。<br>注册过后的广播在广播接收器中就能接受到此广播发送的消息</p>
+<p>注册方式一般有两种：在<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* 动态注册</div><div class="line"></div><div class="line">	1. 创建广播接收器</div><div class="line"></div><div class="line">		新建类继承```BroadcastReceiver```,重写```onReceive()```方法。</div><div class="line">		```onReceive()```在广播消息来时执行，我们对于广播逻辑的处理就在这个方法中进行。</div><div class="line"></div><div class="line">	2. 代码中动态注册广播</div><div class="line"></div><div class="line">		* 第一步需要有IntentFilter 实例用于发送所要传递的广播消息</div><div class="line">		* 第二步实例化 我们创建的广播接收器</div><div class="line">		* 第三步调用registerReceiver()方法传入我们的广播接收器实例和IntentFilter实例</div><div class="line">		* 第四步取消注册调用unregisterReceiver()方法取消我们刚才注册的广播</div><div class="line"></div><div class="line">		动态注册只有在程序启动后才能接收广播</div><div class="line">	</div><div class="line">	3. 静态注册</div><div class="line"></div><div class="line">		* 在AndroidManifest.xml 中注册静态广播 ```&lt;receiver&gt;```标签中注册和注册activity类似</div><div class="line">		* 是系统级别的不启动系统也能接受到广播</div><div class="line">	</div><div class="line">		```注: onReceive()方法中不允许有耗时操作也不要添加过多的逻辑代码</div></pre></td></tr></table></figure></p>
+<h1 id="发送自定义广播"><a href="#发送自定义广播" class="headerlink" title="发送自定义广播"></a>发送自定义广播</h1><ol>
+<li><p>发送标准广播</p>
+<ul>
+<li>定义广播接收器接收广播</li>
+<li>自定义IntentFilter action</li>
+<li>调用sendBroadcast()方法发送自定义的意图</li>
+</ul>
+</li>
+<li><p>发送有序广播</p>
+<ul>
+<li>调用sendOrderedBroadcast()发送有序广播</li>
+<li>可设置广播接收器的优先级，可使优先级高的先接收到广播 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">	* 在广播接收器中可调用abortBroadcast()截断有序广播</div><div class="line"></div><div class="line">3. 使用本地广播</div><div class="line"></div><div class="line">	使用全局广播，安全性不是很好，因此可以使用发送本地广播</div><div class="line"></div><div class="line">	* 只接受本应用程序发送的广播</div><div class="line">	* 使用LodalBroadcastManager 对广播进行管理 使用getInstance(context)获取实例化</div><div class="line">	* local.sendBroadcast()发送本地广播</div><div class="line">	* local.registerReceiver()注册本地广播接收器</div><div class="line"></div><div class="line">	```注：本地广播只可以通过动态注册完成接收</div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/17/firstcode-learn-broadcast-reciver/" data-id="cixviay6u000n1klkcnecbub2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/broadcast-receiver/">broadcast receiver</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/24/android stduio-smartkey/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Android Studio 快捷键
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/09/ss-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">用阿里云做ss代理中转</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/adapter/">adapter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-studio/">android studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/broadcast-receiver/">broadcast receiver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/">layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/listview/">listview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/navigationView/">navigationView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂谈/">杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/镜像/">镜像</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/adapter/" style="font-size: 10px;">adapter</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/broadcast-receiver/" style="font-size: 10px;">broadcast receiver</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/navigationView/" style="font-size: 10px;">navigationView</a> <a href="/tags/ss/" style="font-size: 15px;">ss</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/镜像/" style="font-size: 10px;">镜像</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/10/android-navigationview/">navigationView的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/24/listview/">Android ListView的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/24/android stduio-smartkey/">Android Studio 快捷键</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/17/firstcode-learn-broadcast-reciver/">Broadcast receiver学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

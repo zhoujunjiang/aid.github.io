@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android ListView的学习 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学而时习之不亦说乎
+
+要说也用过不少了，这里再将其剔除来,做一个模仿qq的聊天列表，也算作是复习了。12345678# First 创建ListView布局```xml&amp;lt;ListView	android:id=&amp;quot;@+id/test_list&amp;quot;	android:layout_width=&amp;quot;match_parent&amp;quot;	android:layout_hei">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android ListView的学习">
+<meta property="og:url" content="http://yoursite.com/2016/04/24/listview/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="学而时习之不亦说乎
+
+要说也用过不少了，这里再将其剔除来,做一个模仿qq的聊天列表，也算作是复习了。12345678# First 创建ListView布局```xml&amp;lt;ListView	android:id=&amp;quot;@+id/test_list&amp;quot;	android:layout_width=&amp;quot;match_parent&amp;quot;	android:layout_hei">
+<meta property="og:image" content="http://7xslkm.com2.z0.glb.clouddn.com/item.png">
+<meta property="og:image" content="http://7xslkm.com2.z0.glb.clouddn.com/gx.png">
+<meta property="og:image" content="http://7xslkm.com2.z0.glb.clouddn.com/lc.png">
+<meta property="og:image" content="http://7xslkm.com2.z0.glb.clouddn.com/Screenshot_20160424-173454.png">
+<meta property="og:image" content="http://7xslkm.com2.z0.glb.clouddn.com/Screenshot_20160424-173500.png">
+<meta property="og:updated_time" content="2016-04-24T12:51:32.555Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android ListView的学习">
+<meta name="twitter:description" content="学而时习之不亦说乎
+
+要说也用过不少了，这里再将其剔除来,做一个模仿qq的聊天列表，也算作是复习了。12345678# First 创建ListView布局```xml&amp;lt;ListView	android:id=&amp;quot;@+id/test_list&amp;quot;	android:layout_width=&amp;quot;match_parent&amp;quot;	android:layout_hei">
+<meta name="twitter:image" content="http://7xslkm.com2.z0.glb.clouddn.com/item.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-listview" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/24/listview/" class="article-date">
+  <time datetime="2016-04-23T16:00:00.000Z" itemprop="datePublished">2016-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android ListView的学习
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>学而时习之不亦说乎</p>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>要说也用过不少了，这里再将其剔除来,做一个模仿qq的聊天列表，也算作是复习了。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># First 创建ListView布局</div><div class="line"></div><div class="line">```xml</div><div class="line">&lt;ListView</div><div class="line">	android:id=&quot;@+id/test_list&quot;</div><div class="line">	android:layout_width=&quot;match_parent&quot;</div><div class="line">	android:layout_height=&quot;wrap_content&quot;/&gt;</div></pre></td></tr></table></figure>
+<h1 id="second-实现item布局"><a href="#second-实现item布局" class="headerlink" title="second 实现item布局"></a>second 实现item布局</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:padding</span>=<span class="string">"@dimen/activity_horizontal_margin"</span>&gt;</div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">		<span class="attr">android:id</span>=<span class="string">"@+id/left_image"</span></div><div class="line">		<span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">		<span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">		<span class="attr">android:src</span>=<span class="string">"@mipmap/ic_launcher"</span>/&gt;</div><div class="line">	<span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">		<span class="attr">android:id</span>=<span class="string">"@+id/tv_title"</span></div><div class="line">		<span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">		<span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">		<span class="attr">android:layout_alignTop</span>=<span class="string">"@id/left_image"</span></div><div class="line">		<span class="attr">android:layout_toRightOf</span>=<span class="string">"@id/left_image"</span></div><div class="line">		<span class="attr">android:paddingLeft</span>=<span class="string">"10dp"</span></div><div class="line">		<span class="attr">android:text</span>=<span class="string">"title"</span></div><div class="line">		<span class="attr">android:textSize</span>=<span class="string">"20sp"</span></div><div class="line">		<span class="attr">android:textStyle</span>=<span class="string">"bold"</span>/&gt;</div><div class="line">	<span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">		<span class="attr">android:id</span>=<span class="string">"@+id/tv_content"</span></div><div class="line">		<span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">		<span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">		<span class="attr">android:layout_alignBottom</span>=<span class="string">"@id/left_image"</span></div><div class="line">		<span class="attr">android:layout_toRightOf</span>=<span class="string">"@id/left_image"</span></div><div class="line">		<span class="attr">android:paddingLeft</span>=<span class="string">"10dp"</span></div><div class="line">		<span class="attr">android:text</span>=<span class="string">"content"</span></div><div class="line">	/&gt;</div><div class="line">	<span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">		<span class="attr">android:id</span>=<span class="string">"@+id/tv_time"</span></div><div class="line">		<span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">		<span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">		<span class="attr">android:layout_alignParentRight</span>=<span class="string">"true"</span></div><div class="line">		<span class="attr">android:layout_alignTop</span>=<span class="string">"@+id/tv_title"</span></div><div class="line">		<span class="attr">android:paddingLeft</span>=<span class="string">"10dp"</span></div><div class="line">		<span class="attr">android:text</span>=<span class="string">"12:00"</span></div><div class="line">	/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>效果如图 <img src="http://7xslkm.com2.z0.glb.clouddn.com/item.png" alt=""></p>
+<h1 id="新建实体类用来作为Adapter的适配类型"><a href="#新建实体类用来作为Adapter的适配类型" class="headerlink" title="新建实体类用来作为Adapter的适配类型"></a>新建实体类用来作为Adapter的适配类型</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Item</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> String title;</div><div class="line">	<span class="keyword">private</span> String content;</div><div class="line">	<span class="keyword">private</span> String time;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> imageId;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getContent</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> content;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContent</span><span class="params">(String content)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.content = content;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getTime</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> time;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTime</span><span class="params">(String time)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.time = time;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getTitle</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> title;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTitle</span><span class="params">(String title)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.title = title;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getImageId</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> imageId;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setImageId</span><span class="params">(<span class="keyword">int</span> imageId)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.imageId = imageId;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="构建Adapter类"><a href="#构建Adapter类" class="headerlink" title="构建Adapter类"></a>构建Adapter类</h1><p>Adapter ListView和数据源之间的中间人,使用Adapter为ListViwe绑定数据</p>
+<p><img src="http://7xslkm.com2.z0.glb.clouddn.com/gx.png" alt=""></p>
+<p>Adapter </p>
+<pre><code>* 数据进入可见区域时
+    * Adapter getView() 方法得到调用
+    * 返回代表具体数据的视图
+* lisview触摸滚动时，可以频繁的调用
+* 支持成百上千的数据
+</code></pre><p>当ListView滑动时的一个大概的过程<br><img src="http://7xslkm.com2.z0.glb.clouddn.com/lc.png" alt=""></p>
+<p>写一个 <figure class="highlight plain"><figcaption><span>的类继承```BaseAdapter```，```BaseAdapter```实现了```ListAdapter```和```SpinnerAdapter```中的方法</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">当我们继承他时必须要复写以下四个方法</div><div class="line"></div><div class="line">	1. getCount() </div><div class="line">		返回数据集合的大小</div><div class="line">	2. getItem()</div><div class="line">		返回与数据项相关联项的数据</div><div class="line">	3. getItemId()</div><div class="line">		返回item的Id</div><div class="line">	4. getView()</div><div class="line">		返回代表具体数据的视图</div><div class="line"></div><div class="line"># getView()的几种重写</div><div class="line"></div><div class="line">* 最没效率的写法</div><div class="line"></div><div class="line">```java</div><div class="line">	public View getView(int position, View convertView, ViewGroup parent) &#123;</div><div class="line">		convertView = mInflater.inflate(R.layout.list_item, null);</div><div class="line">		ImageView imageView = (ImageView) convertView.findViewById(R.id.left_image);</div><div class="line">		TextView title = (TextView) convertView.findViewById(R.id.tv_title);</div><div class="line">		TextView content = (TextView) convertView.findViewById(R.id.tv_content);</div><div class="line">		TextView time = (TextView) convertView.findViewById(R.id.tv_time);</div><div class="line">		imageView.setImageResource(items.get(position).getImageId());</div><div class="line">		title.setText(items.get(position).getTitle());</div><div class="line">		content.setText(items.get(position).getContent());</div><div class="line">		time.setText(items.get(position).getTime());</div><div class="line">		return convertView;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>利用convertView，提升效率的写法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (convertView == <span class="keyword">null</span>) &#123;</div><div class="line">		convertView = mInflater.inflate(R.layout.list_item, <span class="keyword">null</span>);</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	ImageView imageView = (ImageView) convertView.findViewById(R.id.left_image);</div><div class="line">	TextView title = (TextView) convertView.findViewById(R.id.tv_title);</div><div class="line">	TextView content = (TextView) convertView.findViewById(R.id.tv_content);</div><div class="line">	TextView time = (TextView) convertView.findViewById(R.id.tv_time);</div><div class="line">	imageView.setImageResource(items.get(position).getImageId());</div><div class="line">	title.setText(items.get(position).getTitle());</div><div class="line">	content.setText(items.get(position).getContent());</div><div class="line">	time.setText(items.get(position).getTime());</div><div class="line">	<span class="keyword">return</span> convertView;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里先判断了一次convertView,如果convertView为空的话，就使用LayoutInflater加载布局，否则就直接复用convertView，<br>这么写就会大大提升效率，现在快速滑动时已经大大的比上一个写法流畅了，虽然不用每次都加载布局了,但是我们每次都还要<br>findViewById()来获取控件的实例，所以我们可以采取下面的写法，再来对效率进行一次提升</p>
+<ul>
+<li>利用ViewHolder 飞速提升效率</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</div><div class="line">	ViewHolder holder = <span class="keyword">null</span>;</div><div class="line">	<span class="keyword">if</span> (convertView == <span class="keyword">null</span>) &#123;</div><div class="line">		convertView = mInflater.inflate(R.layout.list_item, <span class="keyword">null</span>);</div><div class="line">		holder = <span class="keyword">new</span> ViewHolder();</div><div class="line">		holder.imageView = (ImageView) convertView.findViewById(R.id.left_image);</div><div class="line">		holder.title = (TextView) convertView.findViewById(R.id.tv_title);</div><div class="line">		holder.content = (TextView) convertView.findViewById(R.id.tv_content);</div><div class="line">		holder.time = (TextView) convertView.findViewById(R.id.tv_time);</div><div class="line">		convertView.setTag(holder);</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		holder = (ViewHolder) convertView.getTag();</div><div class="line">	&#125;</div><div class="line">	holder.imageView.setImageResource(items.get(position).getImageId());</div><div class="line">	holder.title.setText(items.get(position).getTitle());</div><div class="line">	holder.content.setText(items.get(position).getContent());</div><div class="line">	holder.time.setText(items.get(position).getTime());</div><div class="line">	<span class="keyword">return</span> convertView;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span></span></div><div class="line"></div><div class="line">&#123;</div><div class="line">	ImageView imageView;</div><div class="line">	TextView title;</div><div class="line">	TextView content;</div><div class="line">	TextView time;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>创建一个内部类ViewHolder,对控件实例进行缓存，然后调用convertView的setTag()方法，将ViewHolder对象存在其中，当convertView不为空时<br>就调用getTag()方法将ViewHolder取出，因为所有控件都在ViewHoler中缓存了,所以就不要再findViewById()来获取控件实例了。</p>
+<h1 id="构造函数的编写"><a href="#构造函数的编写" class="headerlink" title="构造函数的编写"></a>构造函数的编写</h1><p>继承了<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```java</div><div class="line">	public MyAdapter(Context context, List&lt;Item&gt; items) &#123;</div><div class="line">		this.mInflater = LayoutInflater.from(context);</div><div class="line">		this.items = items;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p>这里通过传来的contex来获取一个LayoutInflater对象，并以此来加载布局。</p>
+<h1 id="在activi中的实现"><a href="#在activi中的实现" class="headerlink" title="在activi中的实现"></a>在activi中的实现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">		setContentView(R.layout.listview_layout);</div><div class="line">		ListView listView = (ListView) findViewById(R.id.test_list);</div><div class="line">		<span class="keyword">final</span> List&lt;Item&gt; mData = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">		Item item = <span class="keyword">new</span> Item();</div><div class="line">		<span class="comment">//实例化adapter</span></div><div class="line">		MyAdapter adapter = <span class="keyword">new</span> MyAdapter(<span class="keyword">this</span>, mData);</div><div class="line">		<span class="comment">//创建原数据</span></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">			item.setContent(<span class="string">"吃饭么？"</span>);</div><div class="line">			item.setTitle(<span class="string">"小明"</span>);</div><div class="line">			item.setTime(<span class="string">"7:00"</span>);</div><div class="line">			item.setImageId(R.mipmap.ic_launcher);</div><div class="line">			mData.add(item);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//listview绑定adapter</span></div><div class="line">		listView.setAdapter(adapter);</div><div class="line">		</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h1 id="处理item的点击事件"><a href="#处理item的点击事件" class="headerlink" title="处理item的点击事件"></a>处理item的点击事件</h1><p>这里实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```java</div><div class="line">listView.setOnItemClickListener(new AdapterView.OnItemClickListener() &#123;</div><div class="line">			@Override</div><div class="line">			public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) &#123;</div><div class="line">				Toast.makeText(MyActivity.this, mData.get(position).toString(), Toast.LENGTH_SHORT).show();</div><div class="line">				Log.d(&quot;TAG&quot;, String.valueOf(position));</div><div class="line">			&#125;</div><div class="line">		&#125;);</div></pre></td></tr></table></figure></p>
+<h1 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h1><p><img src="http://7xslkm.com2.z0.glb.clouddn.com/Screenshot_20160424-173454.png" alt=""><br><img src="http://7xslkm.com2.z0.glb.clouddn.com/Screenshot_20160424-173500.png" alt=""> </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/24/listview/" data-id="cixviay75000r1klkk71gjgqf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adapter/">adapter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/listview/">listview</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/10/android-navigationview/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          navigationView的使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/24/android stduio-smartkey/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android Studio 快捷键</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/adapter/">adapter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-studio/">android studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/broadcast-receiver/">broadcast receiver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/">layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/listview/">listview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/navigationView/">navigationView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂谈/">杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/镜像/">镜像</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/adapter/" style="font-size: 10px;">adapter</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/broadcast-receiver/" style="font-size: 10px;">broadcast receiver</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/navigationView/" style="font-size: 10px;">navigationView</a> <a href="/tags/ss/" style="font-size: 15px;">ss</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/镜像/" style="font-size: 10px;">镜像</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/10/android-navigationview/">navigationView的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/24/listview/">Android ListView的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/24/android stduio-smartkey/">Android Studio 快捷键</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/17/firstcode-learn-broadcast-reciver/">Broadcast receiver学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

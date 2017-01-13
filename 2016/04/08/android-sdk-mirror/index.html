@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android sdk 镜像搭建 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="不尝试，怎么知道不可以呢？
+
+起源昨天实验室，学长突然交代了我个任务去完成。也就是在局域网环境下，搭建一个android sdk 镜像源。其实吧，乍一听到这个任务确实挺懵逼的，从来没做过这事儿完全不知道如何入手。
+解决过程少年莫慌，一切肯定都有解决的办法。首先，我在某个技术群里提出了我的想法，然后有人给我方案是rsync,也有人给我的方案是，搭一个翻墙代理，不过后来这些想法都被我否决了。第一我并">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android sdk 镜像搭建">
+<meta property="og:url" content="http://yoursite.com/2016/04/08/android-sdk-mirror/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="不尝试，怎么知道不可以呢？
+
+起源昨天实验室，学长突然交代了我个任务去完成。也就是在局域网环境下，搭建一个android sdk 镜像源。其实吧，乍一听到这个任务确实挺懵逼的，从来没做过这事儿完全不知道如何入手。
+解决过程少年莫慌，一切肯定都有解决的办法。首先，我在某个技术群里提出了我的想法，然后有人给我方案是rsync,也有人给我的方案是，搭一个翻墙代理，不过后来这些想法都被我否决了。第一我并">
+<meta property="og:image" content="http://7xslkm.com2.z0.glb.clouddn.com/2016-04-08%20%281%29.png">
+<meta property="og:image" content="http://7xslkm.com2.z0.glb.clouddn.com/2016-04-08%20%282%29.png">
+<meta property="og:updated_time" content="2016-04-09T10:35:22.560Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android sdk 镜像搭建">
+<meta name="twitter:description" content="不尝试，怎么知道不可以呢？
+
+起源昨天实验室，学长突然交代了我个任务去完成。也就是在局域网环境下，搭建一个android sdk 镜像源。其实吧，乍一听到这个任务确实挺懵逼的，从来没做过这事儿完全不知道如何入手。
+解决过程少年莫慌，一切肯定都有解决的办法。首先，我在某个技术群里提出了我的想法，然后有人给我方案是rsync,也有人给我的方案是，搭一个翻墙代理，不过后来这些想法都被我否决了。第一我并">
+<meta name="twitter:image" content="http://7xslkm.com2.z0.glb.clouddn.com/2016-04-08%20%281%29.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-android-sdk-mirror" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/08/android-sdk-mirror/" class="article-date">
+  <time datetime="2016-04-07T16:00:00.000Z" itemprop="datePublished">2016-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android sdk 镜像搭建
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>不尝试，怎么知道不可以呢？</p>
+</blockquote>
+<h1 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h1><p>昨天实验室，学长突然交代了我个任务去完成。也就是在局域网环境下，搭建一个android sdk 镜像源。其实吧，乍一听到这个任务确实挺懵逼的，从来没做过这事儿完全不知道如何入手。</p>
+<h1 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h1><p>少年莫慌，一切肯定都有解决的办法。首先，我在某个技术群里提出了我的想法，然后有人给我方案是rsync,也有人给我的方案是，搭一个翻墙代理，不过后来这些想法都被我否决了。第一我并不知道google 的sdk源支持不支持rsync,然后若是翻墙代理那么这个成本也太高了，失去了搭建这个的意义。然后开始了不断google的过程，经过搜索关键字的不断更换，我发现了这么一篇博客<a href="http://jiajixin.cn/2015/10/11/android-sdk-mirror/" target="_blank" rel="external">Android SDK镜像服务器搭建</a>和我的需求竟是如此的雷同。按照博客的介绍。来到了<a href="https://github.com/opencas/mirrors" target="_blank" rel="external">中科院开源镜像小组</a>首先fork了这个项目，接着clone到本地进行研究。其中有两个文件是需要我们注意的第一个是<a href="https://github.com/opencas/mirrors/blob/master/script/bin/android.py" target="_blank" rel="external">android.py</a>第二个是<a href="https://github.com/opencas/mirrors/blob/master/nginx%2Fconf.d%2F0mirror.conf" target="_blank" rel="external">nginx配置文件</a>总的来说就是这些东西了。</p>
+<h1 id="我的搭建过程"><a href="#我的搭建过程" class="headerlink" title="我的搭建过程"></a>我的搭建过程</h1><ol>
+<li>linux 服务器的搭建，50g大小的磁盘最好,这里我用的是virtual box创建了ubuntu-server 版的系统(这一步略简单，网上教程很多)</li>
+<li>nginx 的安装 推荐教程 <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-virtual-hosts-server-blocks-on-ubuntu-12-04-lts--3" target="_blank" rel="external">How To Set Up nginx Virtual Hosts</a></li>
+<li>搭建梯子，用于android sdk 源的下载这里我用的是Shadowsocks 这个就不多说了</li>
+<li>运行android.py脚本这里时间可能有点长，毕竟下载的东西比较多</li>
+<li>下载完成之后， nginx 服务器的配置，照葫芦画瓢，之接改一下中科院的那个配置文件就ok,主要是    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">server_name: your ip adrees or host</div><div class="line">			dl.google.com</div><div class="line">			dl-ssh.google.com;</div></pre></td></tr></table></figure></li>
+</ol>
+<p>这一行的注意，其余的照着写下来配置就ok了。其实网上的nginx配置的教程也很多，不理解的可以自行goole详细过程</p>
+<ol>
+<li>配置完成重启服务器，写个定时启动脚本ok<a href="http://linuxtools-rst.readthedocs.org/zh_CN/latest/tool/crontab.html" target="_blank" rel="external">crontab 定时任务</a></li>
+<li>回到我们的开发电脑 打开android sdk manager配置如下，这是我的虚拟机ip地址</li>
+</ol>
+<p><img src="http://7xslkm.com2.z0.glb.clouddn.com/2016-04-08%20%281%29.png" alt=""></p>
+<p>测试结果</p>
+<p><img src="http://7xslkm.com2.z0.glb.clouddn.com/2016-04-08%20%282%29.png" alt=""></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>其实这就是，拿别人轮子来用的一个过程。我认为的注意下这几个点就好了</p>
+<ol>
+<li>如何越过gfw,这是最关键的一步，一般来说设置个代理就好了</li>
+<li>nginx的配置注意第5点说的那个地方也就可以了</li>
+<li>定期到用到的轮子那边看看是否有所更新</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/08/android-sdk-mirror/" data-id="cixviay5e000b1klk0p849j17" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/镜像/">镜像</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/09/ss-0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CentOs ss代理服务器搭建
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/04/android-layout-0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android中的常用布局和控件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/adapter/">adapter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-studio/">android studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/broadcast-receiver/">broadcast receiver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/">layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/listview/">listview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/navigationView/">navigationView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂谈/">杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/镜像/">镜像</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/adapter/" style="font-size: 10px;">adapter</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/broadcast-receiver/" style="font-size: 10px;">broadcast receiver</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/navigationView/" style="font-size: 10px;">navigationView</a> <a href="/tags/ss/" style="font-size: 15px;">ss</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/镜像/" style="font-size: 10px;">镜像</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/10/android-navigationview/">navigationView的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/24/listview/">Android ListView的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/24/android stduio-smartkey/">Android Studio 快捷键</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/17/firstcode-learn-broadcast-reciver/">Broadcast receiver学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

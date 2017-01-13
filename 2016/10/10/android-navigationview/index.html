@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>navigationView的使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="好记性，不如烂笔头
+
+最近自己做的一个练手项目用到了，navigationView，其中也遇到了一些问题，今天在这里总结一下他的用法。
+First 准备工作首先在app的build.gradle文件里添加依赖 &apos;com.android.support:design:24.1.1&apos;```12345678910111213141516171819202122232425262728293031323">
+<meta property="og:type" content="article">
+<meta property="og:title" content="navigationView的使用">
+<meta property="og:url" content="http://yoursite.com/2016/10/10/android-navigationview/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="好记性，不如烂笔头
+
+最近自己做的一个练手项目用到了，navigationView，其中也遇到了一些问题，今天在这里总结一下他的用法。
+First 准备工作首先在app的build.gradle文件里添加依赖 &apos;com.android.support:design:24.1.1&apos;```12345678910111213141516171819202122232425262728293031323">
+<meta property="og:image" content="http://7xslkm.com1.z0.glb.clouddn.com/Screenshot_20161010-202542.png">
+<meta property="og:updated_time" content="2016-10-10T14:42:42.413Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="navigationView的使用">
+<meta name="twitter:description" content="好记性，不如烂笔头
+
+最近自己做的一个练手项目用到了，navigationView，其中也遇到了一些问题，今天在这里总结一下他的用法。
+First 准备工作首先在app的build.gradle文件里添加依赖 &apos;com.android.support:design:24.1.1&apos;```12345678910111213141516171819202122232425262728293031323">
+<meta name="twitter:image" content="http://7xslkm.com1.z0.glb.clouddn.com/Screenshot_20161010-202542.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-android-navigationview" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/10/android-navigationview/" class="article-date">
+  <time datetime="2016-10-09T16:00:00.000Z" itemprop="datePublished">2016-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      navigationView的使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>好记性，不如烂笔头</p>
+</blockquote>
+<p>最近自己做的一个练手项目用到了，navigationView，其中也遇到了一些问题，今天在这里总结一下他的用法。</p>
+<h1 id="First-准备工作"><a href="#First-准备工作" class="headerlink" title="First 准备工作"></a>First 准备工作</h1><p>首先在app的<code>build.gradle</code>文件里添加依赖 <figure class="highlight plain"><figcaption><span>'com.android.support:design:24.1.1'```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># Second 在xml中文件使用</div><div class="line">平时使用我们都是将navigationView置于`DrawerLayout`中,所以我们这样定义布局</div><div class="line"></div><div class="line">```xml</div><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;android.support.v4.widget.DrawerLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</div><div class="line">    android:id=&quot;@+id/drawer_layout&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot;</div><div class="line">    android:fitsSystemWindows=&quot;true&quot;&gt;</div><div class="line">&lt;!-- 内容区域 --&gt;</div><div class="line">    &lt;LinearLayout</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:orientation=&quot;vertical&quot;&gt;</div><div class="line"></div><div class="line">        &lt;include</div><div class="line">            android:id=&quot;@+id/toolbar_container&quot;</div><div class="line">            layout=&quot;@layout/toolbar&quot; /&gt;</div><div class="line">	</div><div class="line">        &lt;include</div><div class="line">            android:id=&quot;@+id/container&quot;</div><div class="line">            layout=&quot;@layout/drawer_content&quot; /&gt;</div><div class="line">    &lt;/LinearLayout&gt;</div><div class="line">&lt;!-- navigationView --&gt;</div><div class="line">    &lt;android.support.design.widget.NavigationView</div><div class="line">        android:id=&quot;@+id/navgation_view&quot;</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;match_parent&quot;</div><div class="line">        android:layout_gravity=&quot;left&quot;</div><div class="line">        app:headerLayout=&quot;@layout/nav_header&quot;</div><div class="line">        app:menu=&quot;@menu/drawer&quot; /&gt;</div><div class="line">&lt;/android.support.v4.widget.DrawerLayout&gt;</div></pre></td></tr></table></figure></p>
+<p>在上面的代码我们可以看到navigationView包含了一个<code>header</code>布局和一个<code>menu</code>作用如图：<br><img src="http://7xslkm.com1.z0.glb.clouddn.com/Screenshot_20161010-202542.png" alt=""></p>
+<p>其中<code>nav_header</code>布局通过<code>app:headerLayout=&quot;@layout/nav_header&quot;</code>添加，<code>nav_header</code>布局如下</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"192dp"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@color/colorPrimary"</span></div><div class="line">    <span class="attr">android:gravity</span>=<span class="string">"bottom"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"每日一图"</span></div><div class="line">        <span class="attr">android:textColor</span>=<span class="string">"@android:color/white"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>drawer</code>通过<code>app:menu=&quot;@menu/drawer&quot;</code>添加,<code>drawer</code>代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">group</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/nav_today_photo"</span></div><div class="line">            <span class="attr">android:checkable</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_photo_today"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"@string/today_photo"</span> /&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/nav_more_photo"</span></div><div class="line">            <span class="attr">android:checkable</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_photo_more"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"@string/more_photo"</span> /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">group</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:title</span>=<span class="string">"@string/others"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">menu</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">group</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">                    <span class="attr">android:id</span>=<span class="string">"@+id/nav_setting"</span></div><div class="line">                    <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_settings"</span></div><div class="line">                    <span class="attr">android:title</span>=<span class="string">"@string/setting"</span> /&gt;</div><div class="line">            <span class="tag">&lt;/<span class="name">group</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>ok，经过上面的一系列的操作，我们的布局文件就设置好了，接下来就是在java源码中实现</p>
+<h1 id="Thrid-java源码实现"><a href="#Thrid-java源码实现" class="headerlink" title="Thrid java源码实现"></a>Thrid java源码实现</h1><ol>
+<li><p>实现<code>toolbar</code>在activity中可用</p>
+<p> <code>setSupportActionBar(toolbar);</code></p>
+</li>
+<li><p>实现<code>menu</code>中<code>item</code>的点击事件<br> 主要是实现<code>navgationView.setNavigationItemSelectedListener()</code>这个方法，代码如下</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setUpdrawerContent</span><span class="params">(NavigationView navgationView)</span> </span>&#123;</div><div class="line">        navgationView.setNavigationItemSelectedListener(<span class="keyword">new</span> NavigationView.OnNavigationItemSelectedListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onNavigationItemSelected</span><span class="params">(MenuItem item)</span> </span>&#123;</div><div class="line">                selectDrawerItem(item);</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">selectDrawerItem</span><span class="params">(MenuItem item)</span> </span>&#123;</div><div class="line">        <span class="keyword">switch</span> (item.getItemId()) &#123;</div><div class="line">            <span class="keyword">case</span> R.id.nav_today_photo:</div><div class="line">                controlShowFragment(<span class="number">0</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> R.id.nav_more_photo:</div><div class="line">                controlShowFragment(<span class="number">1</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        item.setChecked(<span class="keyword">true</span>);</div><div class="line">        toolbar.setTitle(item.getTitle());</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>完成这一步我们的<code>item</code>就可一响应事件了,响应事件其实大多数时候我们也是进行内容区域的切换，<br>这里我实现了<code>Fragment</code>的切换，主要代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">controlShowFragment</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">       FragmentManager fm = getSupportFragmentManager();</div><div class="line">       FragmentTransaction ft = fm.beginTransaction();</div><div class="line">       Fragment oldFragment = fm.findFragmentByTag(makeTag(mCurrentPosition));</div><div class="line">       <span class="keyword">if</span> (oldFragment != <span class="keyword">null</span>) &#123;</div><div class="line">           <span class="keyword">if</span> (position == <span class="number">0</span>) &#123;</div><div class="line">               <span class="keyword">if</span> (fm.getBackStackEntryCount() != <span class="number">0</span>) &#123;</div><div class="line">                   fm.popBackStack();</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">           ft.hide(oldFragment);</div><div class="line">       &#125;</div><div class="line">       mCurrentPosition = position;</div><div class="line">       Fragment currentFagment = fm.findFragmentByTag(makeTag(position));</div><div class="line">       <span class="keyword">if</span> (currentFagment != <span class="keyword">null</span>) &#123;</div><div class="line">           ft.show(currentFagment);</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           <span class="keyword">if</span> (position != <span class="number">0</span>) &#123;</div><div class="line">               ft.addToBackStack(makeTag(position));</div><div class="line">           &#125;</div><div class="line">           ft.add(R.id.frame_content, getFragment(position),</div><div class="line">                   makeTag(position));</div><div class="line">       &#125;</div><div class="line">       ft.commitAllowingStateLoss();</div><div class="line">       <span class="keyword">if</span> (drawerLayout.isShown()) &#123;</div><div class="line">           drawerLayout.closeDrawers();</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>这里完成这两步基本上，就快大功告成了</p>
+<h1 id="Four-和toolbar绑定，实现汉堡菜单动画效果"><a href="#Four-和toolbar绑定，实现汉堡菜单动画效果" class="headerlink" title="Four 和toolbar绑定，实现汉堡菜单动画效果"></a>Four 和<code>toolbar</code>绑定，实现汉堡菜单动画效果</h1><p>平时我们在使用<code>google</code>家的app的时候可以看到当我们的侧滑滑动的时候<code>toolbar</code>的汉堡菜单有一个动画效果<br>这里我们需要用到<code>ActionBarDrawerToggle</code>这个类，实现如下</p>
+<ul>
+<li><code>DrawerLayout</code> 和 <code>Toolbar</code>进行绑定</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mDrawerToggle = setUpdrawerToggle();</div><div class="line"><span class="comment">//DrawerLayout和ActionBarDrawerToggle进行事件绑定</span></div><div class="line">drawerLayout.addDrawerListener(mDrawerToggle);</div></pre></td></tr></table></figure>
+<p>实例化<code>ActionBarDrawerToggle</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 资源文件strings.xml中定义如下两个string --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"open_content_drawer"</span>&gt;</span>Open the main menu<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"close_content_drawer"</span>&gt;</span>Close the main menu<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> ActionBarDrawerToggle <span class="title">setUpdrawerToggle</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> ActionBarDrawerToggle(<span class="keyword">this</span>, drawerLayout, toolbar,</div><div class="line">		R.string.open_content_drawer, R.string.close_content_drawer);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>同步状态</li>
+</ul>
+<p>当app的屏幕重新加载或者配置改变之后，我们需要DrawerToggle的状态同步</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onConfigurationChanged</span><span class="params">(Configuration newConfig)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onConfigurationChanged(newConfig);</div><div class="line">        <span class="comment">// Pass any configuration change to the drawer toggles</span></div><div class="line">        mDrawerToggle.onConfigurationChanged(newConfig);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onPostCreate(savedInstanceState);</div><div class="line">        <span class="comment">// Sync the toggle state after onRestoreInstanceState has occurred.</span></div><div class="line">        mDrawerToggle.syncState();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h1 id="Five-最终步骤"><a href="#Five-最终步骤" class="headerlink" title="Five 最终步骤"></a>Five 最终步骤</h1><p>重写<code>onOptionsItemSelected(MenuItem item)</code>方法，实现当点击actionbar的home/up时可以关闭，开启drwaer(侧滑栏)<br><code>ActionBarDrawerToggle</code>可以响应事件,代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onOptionsItemSelected</span><span class="params">(MenuItem item)</span> </span>&#123;</div><div class="line">       <span class="keyword">switch</span> (item.getItemId()) &#123;</div><div class="line">           <span class="keyword">case</span> android.R.id.home:</div><div class="line">               drawerLayout.openDrawer(GravityCompat.START);</div><div class="line">               <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">       &#125;</div><div class="line">       <span class="comment">//允许ActionBarDrawerToggle处理事件</span></div><div class="line">       <span class="keyword">return</span> mDrawerToggle.onOptionsItemSelected(item) || <span class="keyword">super</span>.onOptionsItemSelected(item);</div><div class="line"></div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>重写<code>onBackPressed()</code>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBackPressed</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="comment">//当drawerLayout开启时，按backUp键时关闭drawerLayout</span></div><div class="line">       <span class="keyword">if</span> (drawerLayout.isDrawerOpen(GravityCompat.START)) &#123;</div><div class="line">           drawerLayout.closeDrawers();</div><div class="line">           <span class="keyword">return</span>;</div><div class="line">       &#125;</div><div class="line">       <span class="comment">//管理fragment栈(非必须)</span></div><div class="line">       <span class="keyword">if</span> (getSupportFragmentManager().getBackStackEntryCount() &gt; <span class="number">0</span>) &#123;</div><div class="line">           mCurrentPosition--;</div><div class="line">           getSupportFragmentManager().popBackStack();</div><div class="line">           navgationView.setCheckedItem(navgationView.getMenu().getItem(mCurrentPosition).getItemId());</div><div class="line">           toolbar.setTitle(navgationView.getMenu().getItem(mCurrentPosition).getTitle());</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           <span class="keyword">super</span>.onBackPressed();</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h1 id="Six-其他一些细节处理"><a href="#Six-其他一些细节处理" class="headerlink" title="Six 其他一些细节处理"></a>Six 其他一些细节处理</h1><p>进入app默认选择第一个</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">`headerLayout`布局获得</div><div class="line"></div><div class="line">    ```View hedaderView = navgationView.getHeaderView(0);</div></pre></td></tr></table></figure>
+</code></pre><h1 id="第三方依赖"><a href="#第三方依赖" class="headerlink" title="第三方依赖"></a>第三方依赖</h1><ul>
+<li><a href="https://github.com/mikepenz/MaterialDrawer" target="_blank" rel="external">MaterialDrawer</a></li>
+<li><a href="https://github.com/rudsonlive/NavigationDrawer-MaterialDesign" target="_blank" rel="external">NavigationDrawerMaterial</a></li>
+</ul>
+<h1 id="最终实现效果"><a href="#最终实现效果" class="headerlink" title="最终实现效果"></a>最终实现效果</h1><p><a href="http://7xslkm.com1.z0.glb.clouddn.com/Screencast_2016-10-10-21-42-18%5B1%5D.mp4" target="_blank" rel="external">点击查看视频</a></p>
+<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h1><p><a href="https://github.com/zhoujunjiang/PhotoOfTheDay" target="_blank" rel="external">源码</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/10/10/android-navigationview/" data-id="cixviay7l00111klkwib6mjk5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/navigationView/">navigationView</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/13/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/24/listview/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android ListView的学习</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/adapter/">adapter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-studio/">android studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/broadcast-receiver/">broadcast receiver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/">layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/listview/">listview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/navigationView/">navigationView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂谈/">杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/镜像/">镜像</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/adapter/" style="font-size: 10px;">adapter</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/broadcast-receiver/" style="font-size: 10px;">broadcast receiver</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/navigationView/" style="font-size: 10px;">navigationView</a> <a href="/tags/ss/" style="font-size: 15px;">ss</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/镜像/" style="font-size: 10px;">镜像</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/10/android-navigationview/">navigationView的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/24/listview/">Android ListView的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/24/android stduio-smartkey/">Android Studio 快捷键</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/17/firstcode-learn-broadcast-reciver/">Broadcast receiver学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
