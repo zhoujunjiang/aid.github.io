@@ -96,7 +96,7 @@
 
 漫长的考试周终于结束了，我也有时间继续折腾Android了。前段时间在做团队应用的时候需求有一个分享功能。我想这还不简单，直接采用系统级分享完事儿。结果问题来了，发现微信对于系统级的分享只支持分享图片到朋友圈，并不支持文字等其他内容，如果要想分享其他内容到朋友圈就必须集成微信的sdk。
 于是乎我就想有木有办法，既能集成第三方分享又能不抛弃系统级分享呢？然后看到知">
-<meta property="og:updated_time" content="2017-02-27T11:58:45.069Z">
+<meta property="og:updated_time" content="2017-02-27T12:41:48.767Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模仿知乎android端分享功能">
 <meta name="twitter:description" content="向前跑的时候，也要记得回头看看
@@ -415,7 +415,7 @@
 </blockquote>
 <p>漫长的考试周终于结束了，我也有时间继续折腾Android了。前段时间在做团队应用的时候需求有一个分享功能。我想这还不简单，直接采用系统级分享完事儿。结果问题来了，发现微信对于系统级的分享只支持分享图片到朋友圈，并不支持文字等其他内容，如果要想分享其他内容到朋友圈就必须集成微信的sdk。</p>
 <p>于是乎我就想有木有办法，既能集成第三方分享又能不抛弃系统级分享呢？然后看到知乎貌似就实现了这样的效果还很原生呢。既然知乎能实现，那么我也就有办法。以下是实现效果.</p>
-<video width="480" height="320" controls><br><source src="https://v.qq.com/x/page/x0367yjacgv.html4"><br></video>
+<embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=x0367yjacgv&auto=0" allowfullscreen="true" quality="high" width="480" height="400" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
 
 <p>我们知道实现系统级分享时一般是使用如下代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Intent sendIntent = <span class="keyword">new</span> Intent();</div><div class="line">sendIntent.setAction(Intent.ACTION_SEND);</div><div class="line">sendIntent.putExtra(Intent.EXTRA_TEXT, <span class="string">"This is my text to send."</span>);</div><div class="line">sendIntent.setType(<span class="string">"text/plain"</span>);</div><div class="line">startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.send_to)));</div></pre></td></tr></table></figure></p>
 <blockquote>
