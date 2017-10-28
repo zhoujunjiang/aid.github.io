@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Robot" type="application/atom+xml" />
+
 
 
 
@@ -84,27 +86,20 @@
 
 
 
-<meta name="description" content="不尝试，怎么知道不可以呢？
-
-起源昨天实验室，学长突然交代了我个任务去完成。也就是在局域网环境下，搭建一个android sdk 镜像源。其实吧，乍一听到这个任务确实挺懵逼的，从来没做过这事儿完全不知道如何入手。
-解决过程少年莫慌，一切肯定都有解决的办法。首先，我在某个技术群里提出了我的想法，然后有人给我方案是rsync,也有人给我的方案是，搭一个翻墙代理，不过后来这些想法都被我否决了。第一我并">
+<meta name="description" content="不尝试，怎么知道不可以呢？  起源昨天实验室，学长突然交代了我个任务去完成。也就是在局域网环境下，搭建一个android sdk 镜像源。其实吧，乍一听到这个任务确实挺懵逼的，从来没做过这事儿完全不知道如何入手。 解决过程少年莫慌，一切肯定都有解决的办法。首先，我在某个技术群里提出了我的想法，然后有人给我方案是rsync,也有人给我的方案是，搭一个翻墙代理，不过后来这些想法都被我否决了。第一我并">
+<meta name="keywords" content="镜像">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android sdk 镜像搭建">
 <meta property="og:url" content="http://zhoujunjiang.github.io/2016/04/08/android-sdk-mirror/index.html">
 <meta property="og:site_name" content="Robot">
-<meta property="og:description" content="不尝试，怎么知道不可以呢？
-
-起源昨天实验室，学长突然交代了我个任务去完成。也就是在局域网环境下，搭建一个android sdk 镜像源。其实吧，乍一听到这个任务确实挺懵逼的，从来没做过这事儿完全不知道如何入手。
-解决过程少年莫慌，一切肯定都有解决的办法。首先，我在某个技术群里提出了我的想法，然后有人给我方案是rsync,也有人给我的方案是，搭一个翻墙代理，不过后来这些想法都被我否决了。第一我并">
+<meta property="og:description" content="不尝试，怎么知道不可以呢？  起源昨天实验室，学长突然交代了我个任务去完成。也就是在局域网环境下，搭建一个android sdk 镜像源。其实吧，乍一听到这个任务确实挺懵逼的，从来没做过这事儿完全不知道如何入手。 解决过程少年莫慌，一切肯定都有解决的办法。首先，我在某个技术群里提出了我的想法，然后有人给我方案是rsync,也有人给我的方案是，搭一个翻墙代理，不过后来这些想法都被我否决了。第一我并">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xslkm.com2.z0.glb.clouddn.com/2016-04-08%20%281%29.png">
 <meta property="og:image" content="http://7xslkm.com2.z0.glb.clouddn.com/2016-04-08%20%282%29.png">
 <meta property="og:updated_time" content="2017-05-10T11:22:35.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android sdk 镜像搭建">
-<meta name="twitter:description" content="不尝试，怎么知道不可以呢？
-
-起源昨天实验室，学长突然交代了我个任务去完成。也就是在局域网环境下，搭建一个android sdk 镜像源。其实吧，乍一听到这个任务确实挺懵逼的，从来没做过这事儿完全不知道如何入手。
-解决过程少年莫慌，一切肯定都有解决的办法。首先，我在某个技术群里提出了我的想法，然后有人给我方案是rsync,也有人给我的方案是，搭一个翻墙代理，不过后来这些想法都被我否决了。第一我并">
+<meta name="twitter:description" content="不尝试，怎么知道不可以呢？  起源昨天实验室，学长突然交代了我个任务去完成。也就是在局域网环境下，搭建一个android sdk 镜像源。其实吧，乍一听到这个任务确实挺懵逼的，从来没做过这事儿完全不知道如何入手。 解决过程少年莫慌，一切肯定都有解决的办法。首先，我在某个技术群里提出了我的想法，然后有人给我方案是rsync,也有人给我的方案是，搭一个翻墙代理，不过后来这些想法都被我否决了。第一我并">
 <meta name="twitter:image" content="http://7xslkm.com2.z0.glb.clouddn.com/2016-04-08%20%281%29.png">
 
 
@@ -375,8 +370,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2016/04/08/android-sdk-mirror/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                <a href="/2016/04/08/android-sdk-mirror/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/04/08/android-sdk-mirror/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -554,7 +549,12 @@
           
   <div class="comments" id="comments">
     
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -627,6 +627,13 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -674,7 +681,7 @@
             <ul class="links-of-blogroll-list">
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://www.stuzone.com/bitworkshop-beta/" title="比特工场" target="_blank">比特工场</a>
+                  <a href="https://xss.bitworkshop.net/" title="小书生" target="_blank">小书生</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
@@ -823,27 +830,37 @@
 
   
 
+    <script type="text/javascript">
+      var disqus_shortname = 'zhoujunjiang-github-io';
+      var disqus_identifier = '2016/04/08/android-sdk-mirror/';
+
+      var disqus_title = "Android sdk 镜像搭建";
 
 
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
 
-	
+      run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
 
-
-
-
-  
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "571522d4bf8a4aed81ddec6aa539f4cd",
-        target: "cloud-tie-wrapper"
-      };
     </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
   
+
+
+
 
 
 

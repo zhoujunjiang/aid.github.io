@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Robot" type="application/atom+xml" />
+
 
 
 
@@ -84,25 +86,18 @@
 
 
 
-<meta name="description" content="追一波热度
-
-今天我也来追一波热度的吧，论如何利用 Android Studio 用 Kotlin 开发 Android，废话少说直接进入正题话说 Android Studio 3.0已经和Kotlin plugin进行了捆绑，但是要是 3.0 以下咋办呢？，那也很简单
-第一步安装插件首先打开Android Studio选择 File -&amp;gt; Settings -&amp;gt; Plugins -">
+<meta name="description" content="追一波热度  今天我也来追一波热度的吧，论如何利用 Android Studio 用 Kotlin 开发 Android，废话少说直接进入正题话说 Android Studio 3.0已经和Kotlin plugin进行了捆绑，但是要是 3.0 以下咋办呢？，那也很简单 第一步安装插件首先打开Android Studio选择 File -&amp;gt; Settings -&amp;gt; Plugins -">
+<meta name="keywords" content="Kotlin,Android,Android Studio">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 Kotlin 进行 android 开发">
 <meta property="og:url" content="http://zhoujunjiang.github.io/2017/05/21/use-kotlin-develop-android/index.html">
 <meta property="og:site_name" content="Robot">
-<meta property="og:description" content="追一波热度
-
-今天我也来追一波热度的吧，论如何利用 Android Studio 用 Kotlin 开发 Android，废话少说直接进入正题话说 Android Studio 3.0已经和Kotlin plugin进行了捆绑，但是要是 3.0 以下咋办呢？，那也很简单
-第一步安装插件首先打开Android Studio选择 File -&amp;gt; Settings -&amp;gt; Plugins -">
+<meta property="og:description" content="追一波热度  今天我也来追一波热度的吧，论如何利用 Android Studio 用 Kotlin 开发 Android，废话少说直接进入正题话说 Android Studio 3.0已经和Kotlin plugin进行了捆绑，但是要是 3.0 以下咋办呢？，那也很简单 第一步安装插件首先打开Android Studio选择 File -&amp;gt; Settings -&amp;gt; Plugins -">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-05-21T14:49:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 Kotlin 进行 android 开发">
-<meta name="twitter:description" content="追一波热度
-
-今天我也来追一波热度的吧，论如何利用 Android Studio 用 Kotlin 开发 Android，废话少说直接进入正题话说 Android Studio 3.0已经和Kotlin plugin进行了捆绑，但是要是 3.0 以下咋办呢？，那也很简单
-第一步安装插件首先打开Android Studio选择 File -&amp;gt; Settings -&amp;gt; Plugins -">
+<meta name="twitter:description" content="追一波热度  今天我也来追一波热度的吧，论如何利用 Android Studio 用 Kotlin 开发 Android，废话少说直接进入正题话说 Android Studio 3.0已经和Kotlin plugin进行了捆绑，但是要是 3.0 以下咋办呢？，那也很简单 第一步安装插件首先打开Android Studio选择 File -&amp;gt; Settings -&amp;gt; Plugins -">
 
 
 
@@ -383,8 +378,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/05/21/use-kotlin-develop-android/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                <a href="/2017/05/21/use-kotlin-develop-android/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/21/use-kotlin-develop-android/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -542,7 +537,12 @@
           
   <div class="comments" id="comments">
     
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -615,6 +615,13 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -662,7 +669,7 @@
             <ul class="links-of-blogroll-list">
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://www.stuzone.com/bitworkshop-beta/" title="比特工场" target="_blank">比特工场</a>
+                  <a href="https://xss.bitworkshop.net/" title="小书生" target="_blank">小书生</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
@@ -811,27 +818,37 @@
 
   
 
+    <script type="text/javascript">
+      var disqus_shortname = 'zhoujunjiang-github-io';
+      var disqus_identifier = '2017/05/21/use-kotlin-develop-android/';
+
+      var disqus_title = "使用 Kotlin 进行 android 开发";
 
 
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
 
-	
+      run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
 
-
-
-
-  
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "571522d4bf8a4aed81ddec6aa539f4cd",
-        target: "cloud-tie-wrapper"
-      };
     </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
   
+
+
+
 
 
 

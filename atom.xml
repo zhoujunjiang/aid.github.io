@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Robot</title>
+  
+  <subtitle>just do it!</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://zhoujunjiang.github.io/"/>
+  <updated>2017-06-01T10:00:00.000Z</updated>
+  <id>http://zhoujunjiang.github.io/</id>
+  
+  <author>
+    <name>JunJiang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我眼中的Android MVC,MVP,MVVM</title>
+    <link href="http://zhoujunjiang.github.io/2017/06/01/android-architecture-think/"/>
+    <id>http://zhoujunjiang.github.io/2017/06/01/android-architecture-think/</id>
+    <published>2017-06-01T09:28:27.000Z</published>
+    <updated>2017-06-01T10:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;纸上得来终觉浅,绝知此事要躬行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一直没有认真研究过 &lt;code&gt;MVVM&lt;/code&gt; 这次花了点时间理解了一下这种架构,正好集齐了三种架构模式,这里就简单的谈一下我的理解吧&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://zhoujunjiang.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Kotlin 进行 android 开发</title>
+    <link href="http://zhoujunjiang.github.io/2017/05/21/use-kotlin-develop-android/"/>
+    <id>http://zhoujunjiang.github.io/2017/05/21/use-kotlin-develop-android/</id>
+    <published>2017-05-21T14:27:51.000Z</published>
+    <updated>2017-05-21T14:49:35.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;追一波热度&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天我也来追一波热度的吧，论如何利用 &lt;code&gt;Android Studio&lt;/code&gt; 用 &lt;code&gt;Kotlin&lt;/code&gt; 开发
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="http://zhoujunjiang.github.io/categories/Android/"/>
+    
+      <category term="kotlin" scheme="http://zhoujunjiang.github.io/categories/Android/kotlin/"/>
+    
+    
+      <category term="Kotlin,Android,Android Studio" scheme="http://zhoujunjiang.github.io/tags/Kotlin-Android-Android-Studio/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模仿知乎android端分享功能</title>
+    <link href="http://zhoujunjiang.github.io/2017/01/18/lmitate-zhihu-share/"/>
+    <id>http://zhoujunjiang.github.io/2017/01/18/lmitate-zhihu-share/</id>
+    <published>2017-01-18T02:38:40.000Z</published>
+    <updated>2017-05-10T11:22:35.293Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;向前跑的时候，也要记得回头看看&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;漫长的考试周终于结束了，我也有时间继续折腾Android了。前段时间在做团队应用的时候需求有一个分享功能。我想这还不简单，直接采用系统级分享完事儿。结果问题来了，发现微信对于
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="http://zhoujunjiang.github.io/categories/Android/"/>
+    
+    
+      <category term="android share" scheme="http://zhoujunjiang.github.io/tags/android-share/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>navigationView的使用</title>
+    <link href="http://zhoujunjiang.github.io/2016/10/10/android-navigationview/"/>
+    <id>http://zhoujunjiang.github.io/2016/10/10/android-navigationview/</id>
+    <published>2016-10-09T16:00:00.000Z</published>
+    <updated>2017-05-10T11:22:35.281Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;好记性，不如烂笔头&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;最近自己做的一个练手项目用到了，navigationView，其中也遇到了一些问题，今天在这里总结一下他的用法。&lt;/p&gt;
+&lt;h1 id=&quot;First-准备工作&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="http://zhoujunjiang.github.io/categories/Android/"/>
+    
+    
+      <category term="navigationView" scheme="http://zhoujunjiang.github.io/tags/navigationView/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android ListView的学习</title>
+    <link href="http://zhoujunjiang.github.io/2016/04/24/listview/"/>
+    <id>http://zhoujunjiang.github.io/2016/04/24/listview/</id>
+    <published>2016-04-23T16:00:00.000Z</published>
+    <updated>2017-05-10T11:22:35.269Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;学而时习之不亦说乎&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;ListView&lt;/code&gt;要说也用过不少了，这里再将其剔除来,做一个模仿qq的聊天列表，也算作是复习了。&lt;/p&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="http://zhoujunjiang.github.io/categories/Android/"/>
+    
+    
+      <category term="listview" scheme="http://zhoujunjiang.github.io/tags/listview/"/>
+    
+      <category term="adapter" scheme="http://zhoujunjiang.github.io/tags/adapter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android Studio 快捷键</title>
+    <link href="http://zhoujunjiang.github.io/2016/04/24/android%20stduio-smartkey/"/>
+    <id>http://zhoujunjiang.github.io/2016/04/24/android stduio-smartkey/</id>
+    <published>2016-04-23T16:00:00.000Z</published>
+    <updated>2017-05-10T11:22:35.269Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;纸上得来终觉浅，绝知此事要躬行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;android
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="http://zhoujunjiang.github.io/categories/Android/"/>
+    
+    
+      <category term="android studio" scheme="http://zhoujunjiang.github.io/tags/android-studio/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Broadcast receiver学习笔记</title>
+    <link href="http://zhoujunjiang.github.io/2016/04/17/firstcode-learn-broadcast-reciver/"/>
+    <id>http://zhoujunjiang.github.io/2016/04/17/firstcode-learn-broadcast-reciver/</id>
+    <published>2016-04-16T16:00:00.000Z</published>
+    <updated>2017-05-10T11:22:35.257Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;行者，始于足下&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;android中的广播类型&quot;&gt;&lt;a href=&quot;#android中的广播类型&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="http://zhoujunjiang.github.io/categories/Android/"/>
+    
+    
+      <category term="broadcast receiver" scheme="http://zhoujunjiang.github.io/tags/broadcast-receiver/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用阿里云做ss代理中转</title>
+    <link href="http://zhoujunjiang.github.io/2016/04/09/ss-1/"/>
+    <id>http://zhoujunjiang.github.io/2016/04/09/ss-1/</id>
+    <published>2016-04-08T16:00:00.000Z</published>
+    <updated>2017-05-10T11:22:35.257Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;要么不做，要么就做到最好&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;自从学校机房被烧了以后，学校的校园网就变得有点龟速了，昨天搭建的ss服务器的速度，不是那么的让人满意，&lt;br&gt;然后看到官方文档可以用&lt;code&gt;haproxy&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="折腾" scheme="http://zhoujunjiang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="ss" scheme="http://zhoujunjiang.github.io/tags/ss/"/>
+    
+      <category term="linux" scheme="http://zhoujunjiang.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOs ss代理服务器搭建</title>
+    <link href="http://zhoujunjiang.github.io/2016/04/09/ss-0/"/>
+    <id>http://zhoujunjiang.github.io/2016/04/09/ss-0/</id>
+    <published>2016-04-08T16:00:00.000Z</published>
+    <updated>2017-05-10T11:22:35.249Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;文档的阅读，以及实现&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;继续开坑中，一直在用别人的梯子，这里也尝试着搭建一下自己的ss服务器。&lt;/p&gt;
+&lt;h3 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="折腾" scheme="http://zhoujunjiang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="ss" scheme="http://zhoujunjiang.github.io/tags/ss/"/>
+    
+      <category term="linux" scheme="http://zhoujunjiang.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android sdk 镜像搭建</title>
+    <link href="http://zhoujunjiang.github.io/2016/04/08/android-sdk-mirror/"/>
+    <id>http://zhoujunjiang.github.io/2016/04/08/android-sdk-mirror/</id>
+    <published>2016-04-07T16:00:00.000Z</published>
+    <updated>2017-05-10T11:22:35.249Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;不尝试，怎么知道不可以呢？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;起源&quot;&gt;&lt;a href=&quot;#起源&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="折腾" scheme="http://zhoujunjiang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="镜像" scheme="http://zhoujunjiang.github.io/tags/%E9%95%9C%E5%83%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开篇</title>
+    <link href="http://zhoujunjiang.github.io/2016/03/31/first-blog/"/>
+    <id>http://zhoujunjiang.github.io/2016/03/31/first-blog/</id>
+    <published>2016-03-30T16:00:00.000Z</published>
+    <updated>2017-01-13T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这里是关于这个博客的开篇，折腾过wordpress，最终还是选择了以这种形式搭建博客&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;一些说明&quot;&gt;&lt;a href=&quot;#一些说明&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
